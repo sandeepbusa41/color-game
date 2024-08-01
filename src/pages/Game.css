@@ -1,0 +1,150 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    position: relative;
+    top:100px
+}
+
+.score {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.countdown {
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -40px;
+}
+
+.guess-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 10px;
+}
+
+.guess-button {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    
+}
+
+.guess-button.green {
+    background-color: green;
+}
+
+.guess-button.red {
+    background-color: red;
+}
+
+.guess-button.violet {
+    background-color: violet;
+}
+
+.result-message {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    animation: bubble-up 2s ease forwards;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes bubble-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+.outcomes {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+}
+
+.outcome-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.outcome {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.number {
+    margin-right: 10px;
+}
+
+.color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,84 @@
+/* NavigationBar.module.css */
+.navbar {
+    background-color: #343a40; /* Dark background color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+}
+
+.navLink {
+    color: #ffffff; /* White text color */
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.3s;
+    padding: 10px 15px;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #00bfff; /* Light blue color */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.navLink:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navLink:hover {
+    color: #00bfff; /* Light blue color on hover */
+}
+
+.activeLink {
+    font-weight: bold;
+    border-bottom: 2px solid #00bfff; /* Light blue underline for active link */
+}
+
+.userActions {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 10px;
+}
+
+.balance {
+    margin-right: 10px;
+}
+
+.logoutButton {
+    background: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.logoutButton:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.logoutButton:active {
+    background-color: #990000;
+}
