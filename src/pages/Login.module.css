@@ -107,3 +107,40 @@ input:focus,
 button:hover {
     transition: all 0.3s ease;
 }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form {
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .formGroup {
+        margin-bottom: 10px;
+    }
+
+    .formGroup label {
+        font-size: 1rem;
+    }
+
+    .input {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .submitButton {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+
+    .error,
+    .suggestion {
+        font-size: 1rem;
+    }
+}
+

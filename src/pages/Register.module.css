@@ -72,3 +72,35 @@ label {
         opacity: 1;
     }
 }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .formGroup {
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .submitButton {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+
+    .success {
+        font-size: 1.1rem;
+    }
+}
+

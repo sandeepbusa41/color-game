@@ -8,10 +8,27 @@ function Game() {
     const [number, setNumber] = useState(0);
     const [countdown, setCountdown] = useState(5);
     const { balance, setBalance } = useContext(BalanceContext);
+    
+    const generateRandomOutcomes = () => {
+        const colors = ['green', 'red', 'violet'];
+        const randomOutcomes = Array.from({ length: 10 }, () => {
+            const randomNumber = Math.floor(Math.random() * 10);
+            const generatedColor = randomNumber === 0 || randomNumber === 5 ? 'violet' : randomNumber % 2 === 0 ? 'green' : 'red';
+            return {
+                number: randomNumber,
+                generatedColor: generatedColor,
+                userGuess: colors[Math.floor(Math.random() * colors.length)],
+                isCorrect: Math.random() < 0.5 // Randomly decide if the guess was correct
+            };
+        });
+        return randomOutcomes;
+    };
+
     const [outcomes, setOutcomes] = useState(() => {
         const savedOutcomes = localStorage.getItem('outcomes');
-        return savedOutcomes ? JSON.parse(savedOutcomes) : [];
+        return savedOutcomes ? JSON.parse(savedOutcomes) : generateRandomOutcomes();
     });
+
     const [userGuess, setUserGuess] = useState(null);
     const [betAmount, setBetAmount] = useState(0);
     const [iter, setIter] = useState(0);
@@ -107,7 +124,6 @@ function Game() {
         <React.Fragment>
             <NavigationBar />
             <div className="container">
-                {/* <div className="balance">Balance: {balance}</div> */}
                 <div className="countdown">Countdown: {countdown}</div>
                 <div className="guess-buttons">
                     <button className="guess-button green" onClick={() => handleGuess('green')}>Green</button>
@@ -135,3 +151,4 @@ function Game() {
 }
 
 export default Game;
+

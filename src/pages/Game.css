@@ -1,3 +1,6 @@
+/* Game.css */
+
+/* Container styling */
 .container {
     display: flex;
     flex-direction: column;
@@ -6,28 +9,27 @@
     height: 100vh;
     font-family: Arial, sans-serif;
     position: relative;
-    top:100px
+    padding-top: 20px; /* Adjusted padding */
 }
 
+/* Score styling */
 .score {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
+/* Countdown styling */
 .countdown {
     font-size: 24px;
     margin-bottom: 20px;
-    position: absolute;
-    top: -40px;
 }
 
+/* Guess buttons styling */
 .guess-buttons {
     display: flex;
     justify-content: space-around;
     width: 300px;
     margin-bottom: 20px;
-    position: absolute;
-    top: 10px;
 }
 
 .guess-button {
@@ -38,7 +40,6 @@
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    
 }
 
 .guess-button.green {
@@ -53,14 +54,11 @@
     background-color: violet;
 }
 
+/* Result message styling */
 .result-message {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
-    position: absolute;
-    top: 40%;
-    z-index: 10;
-    animation: bubble-up 2s ease forwards;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
     border-radius: 10px;
@@ -94,11 +92,8 @@
     }
 }
 
+/* Outcomes styling */
 .outcomes {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 90%;
     max-width: 600px;
     border: 1px solid #ddd;
@@ -106,7 +101,8 @@
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-
+    margin-top: 20px;
+    padding: 10px; /* Added padding */
 }
 
 .outcome-header {
@@ -147,4 +143,53 @@
     height: 20px;
     border-radius: 50%;
     display: inline-block;
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+    .countdown {
+        font-size: 20px;
+    }
+
+    .guess-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .guess-button {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px 0;
+    }
+
+    .result-message {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .outcomes {
+        width: 100%;
+        max-width: 90%;
+        margin-top: 10px; /* Adjusted margin */
+        padding: 5px; /* Adjusted padding */
+    }
+
+    .outcome-header, .outcome {
+        flex-direction: row; /* Ensure S.No, Number, and Color remain in a single row */
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px; /* Adjusted font size for better fit */
+    }
+
+    .outcome {
+        flex-direction: row; /* Ensure outcome entries remain in a single row */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .number {
+        margin-right: 5px;
+    }
 }
