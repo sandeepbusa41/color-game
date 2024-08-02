@@ -6,7 +6,7 @@ function Invalid(){
     return(
         <>
         <NavigationBar/>
-        <h1>invalidscreen</h1>
+        <h1>HELLO PLAYER, GO AND REGISTER TO PLAY</h1>
         
         
         </>

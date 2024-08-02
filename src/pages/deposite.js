@@ -1,4 +1,3 @@
-
 import React, { useContext, useState, useEffect } from "react";
 import NavigationBar from "../components/navbar";
 import { BalanceContext } from "../components/balance";
@@ -9,9 +8,19 @@ function Deposit() {
     const { user } = useContext(UserContext);
     const { balance, setBalance } = useContext(BalanceContext);
     const [amount, setAmount] = useState(0);
-    const [history, setHistory] = useState(user.depositHistory);
+    const [history, setHistory] = useState(user.depositHistory || []); // Initialize to an empty array
+    const [depositKey, setDepositKey] = useState('');
+    const [error, setError] = useState('');
+
+    // Define your deposit key here
+    const correctDepositKey = 'YOUR_SECRET_KEY'; // Replace with your actual key
 
     const handleDeposit = () => {
+        if (depositKey !== correctDepositKey) {
+            setError('Invalid deposit key');
+            return;
+        }
+        
         if (amount > 0) {
             const depositAmount = parseInt(amount, 10);
             setBalance(prevBal => prevBal + depositAmount);
@@ -26,6 +35,8 @@ function Deposit() {
             setHistory(updatedHistory);
             localStorage.setItem(`${user.username}_depositHistory`, JSON.stringify(updatedHistory));
             setAmount(0);
+            setDepositKey('');
+            setError('');
         } else {
             alert('Enter a positive amount');
         }
@@ -47,19 +58,31 @@ function Deposit() {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                 />
+                <label>Enter deposit key:</label>
+                <input
+                    type="text"
+                    placeholder="Enter deposit key"
+                    value={depositKey}
+                    onChange={(e) => setDepositKey(e.target.value)}
+                />
                 <button onClick={handleDeposit}>Deposit</button>
+                {error && <div className={styles.error}>{error}</div>}
 
                 <div className={styles.history}>
                     <h2>Deposit History</h2>
-                    {history.map((entry, index) => (
-                        <div key={index} className={styles.historyItem}>
-                            <div>
-                                <span className={styles.historyDate}>{entry.date}</span>
-                                <span className={styles.historyTime}>{entry.time}</span>
+                    {history.length > 0 ? (
+                        history.map((entry, index) => (
+                            <div key={index} className={styles.historyItem}>
+                                <div>
+                                    <span className={styles.historyDate}>{entry.date}</span>
+                                    <span className={styles.historyTime}>{entry.time}</span>
+                                </div>
+                                <div className={styles.historyAmount}>${entry.amount}</div>
                             </div>
-                            <div className={styles.historyAmount}>${entry.amount}</div>
-                        </div>
-                    ))}
+                        ))
+                    ) : (
+                        <p>No deposit history available</p>
+                    )}
                 </div>
             </div>
         </>
@@ -67,4 +90,3 @@ function Deposit() {
 }
 
 export default Deposit;
-

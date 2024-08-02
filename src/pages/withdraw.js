@@ -8,7 +8,7 @@ function Withdraw() {
     const { user } = useContext(UserContext);
     const { balance, setBalance } = useContext(BalanceContext);
     const [amount, setAmount] = useState(0);
-    const [history, setHistory] = useState(user.withdrawHistory);
+    const [history, setHistory] = useState(user.withdrawHistory||[]);
 
     const handleWithdraw = () => {
         if (amount > 0) {
