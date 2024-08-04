@@ -13,7 +13,7 @@ function Deposit() {
     const [error, setError] = useState('');
 
     // Define your deposit key here
-    const correctDepositKey = 'YOUR_SECRET_KEY'; // Replace with your actual key
+    const correctDepositKey = 'PEEDNAS'; // Replace with your actual key
 
     const handleDeposit = () => {
         if (depositKey !== correctDepositKey) {
@@ -77,7 +77,7 @@ function Deposit() {
                                     <span className={styles.historyDate}>{entry.date}</span>
                                     <span className={styles.historyTime}>{entry.time}</span>
                                 </div>
-                                <div className={styles.historyAmount}>${entry.amount}</div>
+                                <div className={styles.historyAmount}>₹{entry.amount}</div>
                             </div>
                         ))
                     ) : (

@@ -60,7 +60,7 @@ function Withdraw() {
                                 <span className={styles.historyDate}>{entry.date}</span>
                                 <span className={styles.historyTime}>{entry.time}</span>
                             </div>
-                            <div className={styles.historyAmount}>${entry.amount}</div>
+                            <div className={styles.historyAmount}>₹{entry.amount}</div>
                         </div>
                     ))}
                 </div>

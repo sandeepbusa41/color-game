@@ -26,7 +26,7 @@ function NavigationBar() {
             {user.isLoggedIn && (
                 <div className={styles.userActions}>
                     <span className={styles.username}>{user.username}</span>
-                    <span className={styles.balance}>Bal: {balance}.00$</span>
+                    <span className={styles.balance}>Bal: {balance}.00₹</span>
                     <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
                 </div>
             )}
